@@ -16,7 +16,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <header>
+          <nav className="flex justify-between items-center px-5 h-[70px] shadow-md bg-gray-50">
+            <div>Только свежие новости!</div>
+            <div>Войти</div>
+          </nav>
+        </header>
+        <main className='px-5 my-5'>
+          {children}
+        </main>
+        {/* <footer className="pt-5 my-5 text-body-secondary border-top">
+          Created by the Ustinnov Corporation · © 2023
+        </footer> */}
+      </body>
     </html>
   )
 }

@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <main>
-      This is started page
+      Здесь будут показаны новости, отправленные через телеграмм-бота
     </main>
   )
 }
