@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, useState, useEffect } from "react"
+import { ReactNode, useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
 export default function Container({children}: {children: ReactNode}) {
@@ -30,22 +30,23 @@ export default function Container({children}: {children: ReactNode}) {
   return (
     <>
       <header>
-          <nav className="flex justify-between items-center px-5 h-[70px] shadow-md bg-gray-50">
-            <div>Только свежие новости!</div>
-            {isAuthed && <button 
-              className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-              onClick={leave_page}
-            >
-              Выйти
-            </button>}
-          </nav>
-        </header>
-        <main className='px-5 my-5'>
-          {children}
-        </main>
-        {/* <footer className="pt-5 my-5 text-body-secondary border-top">
-          Created by the Ustinnov Corporation · © 2023
-        </footer> */}
+        <nav className="flex justify-between items-center px-5 h-[70px] shadow-md bg-gray-50">
+          <div>Только свежие новости!</div>
+          
+          {isAuthed && <button 
+            className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+            onClick={leave_page}
+          >
+            Выйти
+          </button>}
+        </nav>
+      </header>
+      <main className='px-5 my-5'>
+        {children}
+      </main>
+      {/* <footer className="pt-5 my-5 text-body-secondary border-top">
+        Created by the Ustinnov Corporation · © 2023
+      </footer> */}
     </>
   );
 }
