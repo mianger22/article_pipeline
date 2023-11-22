@@ -1,5 +1,5 @@
-export default function Registration() {
+export default function registration() {
   return (
-    <h1>Registration</h1>
+    <h1>registration</h1>
   );
 }

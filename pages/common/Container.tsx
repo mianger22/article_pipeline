@@ -11,13 +11,15 @@ export default function Container({children}: {children: ReactNode}) {
     if (localStorage.getItem('authToken')) {
       setAuth(true);
     }
-    
+
     // alert(isAuthed);
   }, [isAuthed])
 
-  const leave_page = () => {
+  const leave_page = (e: any) => {
     // убираем статус авторизованного пользователя
     setAuth(false);
+
+    e.preventDefault();
 
     // редиректим на страницу авторизации
     router.push('/authorization');

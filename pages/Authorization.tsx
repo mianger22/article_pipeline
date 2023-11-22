@@ -1,5 +1,5 @@
-export default function Authorization() {
+export default function authorization() {
   return (
-    <h1>Authorization</h1>
+    <h1>authorization</h1>
   );
 }
