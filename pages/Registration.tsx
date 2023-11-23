@@ -1,5 +1,9 @@
+import Container from "./common/Container";
+
 export default function registration() {
   return (
-    <h1>registration</h1>
+    <Container>
+      <h1>registration</h1>
+    </Container>
   );
 }

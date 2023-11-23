@@ -1,5 +1,3 @@
-'use client';
-
 import { ReactNode, useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 

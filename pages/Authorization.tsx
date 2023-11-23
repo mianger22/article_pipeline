@@ -1,5 +1,9 @@
+import Container from "./common/Container";
+
 export default function authorization() {
   return (
-    <h1>authorization</h1>
+    <Container>
+      <h1>authorization2</h1>
+    </Container>
   );
 }
