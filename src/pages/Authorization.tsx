@@ -81,7 +81,7 @@ export default function Authorization() {
                 {errors.password && touched.password && errors.password}
               </div>
 
-              <div className='flex justify-between items-center'>
+              <div className='flex justify-between items-center mt-5'>
                 <button 
                   type="submit" 
                   disabled={isSubmitting} 
