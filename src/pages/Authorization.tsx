@@ -1,6 +1,5 @@
 import { Formik } from "formik";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useEffect } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 
 type ErrorsAuthorizationTypes = {
   login?: string;
@@ -13,14 +12,6 @@ type ErrorsAuthorizationTypes = {
 
 export default function Authorization() {
   const navigate = useNavigate();
-  const location = useLocation().pathname;
-
-  useEffect(() => {
-    if (localStorage.getItem('authToken') && location === "/authorization") {
-      // редиректим на главную
-      navigate('/');
-    }
-  })
 
   return (
     <Formik
@@ -33,14 +24,12 @@ export default function Authorization() {
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+        // alert(JSON.stringify(values, null, 2));
+        setSubmitting(false);
 
+        // предоставляем токен
         localStorage.setItem("authToken", "authToken");
-
-        // редиректим на главную
+        // впускаем в приложение
         navigate('/');
       }}
     >

@@ -1,6 +1,5 @@
 import { Formik } from 'formik';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 type ErrorsRegistrationTypes = {
   login?: string;
@@ -15,14 +14,6 @@ type ErrorsRegistrationTypes = {
 
 export default function Registration() {
   const navigate = useNavigate();
-  const location = useLocation().pathname;
-
-  useEffect(() => {
-    if (localStorage.getItem('authToken') && location === "/registration") {
-      // редиректим на главную
-      navigate('/');
-    }
-  })
 
   return (
     <Formik
@@ -41,14 +32,12 @@ export default function Registration() {
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+        // alert(JSON.stringify(values, null, 2));
+        setSubmitting(false);
 
+        // предоставляем токен
         localStorage.setItem("authToken", "authToken");
-
-        // редиректим на главную
+        // впускаем в приложение
         navigate('/');
       }}
     >

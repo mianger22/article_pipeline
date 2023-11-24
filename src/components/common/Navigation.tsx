@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 export default function Navigation() {
   const navigate = useNavigate();
-  const [isAuthed, setAuth] = useState(true);
+  const [isAuthed, setAuth] = useState(false);
 
   useEffect(() => {
+    // если токен существует, то отображать кнопку выхода
     if (localStorage.getItem('authToken')) {
       setAuth(true);
     }
@@ -14,10 +15,9 @@ export default function Navigation() {
   const leave_page = () => {
     // убираем статус авторизованного пользователя
     setAuth(false);
-
     // редиректим на страницу авторизации
-    navigate('authorization');
-
+    navigate('/authorization');
+    // отбираем токен
     localStorage.removeItem("authToken");
   }
 
