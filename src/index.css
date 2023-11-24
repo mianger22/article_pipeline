@@ -12,6 +12,6 @@
   }
 
   .form_custom {
-    @apply w-full max-w-xs mb-5;
+    @apply w-full max-w-sm mb-5;
   }
 }
