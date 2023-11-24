@@ -81,7 +81,7 @@ export default function Authorization() {
                 {errors.password && touched.password && errors.password}
               </div>
 
-              <div className='mt-4'>
+              <div className='flex justify-between items-center'>
                 <button 
                   type="submit" 
                   disabled={isSubmitting} 
@@ -89,15 +89,15 @@ export default function Authorization() {
                 >
                   Войти
                 </button>
+
+                <div className='text-blue-700 text-decoration-line: underline text-lg pr-3'>
+                  <Link to="/registration">Зарегистрироваться</Link>
+                </div>
               </div>
             </form>
           </div>
         )}
       </Formik>
-      
-      <div className='mt-3'>
-        <Link to="/registration">Регистрация</Link>
-      </div>
     </>
   );
 }
