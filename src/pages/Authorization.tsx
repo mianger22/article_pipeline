@@ -54,38 +54,44 @@ export default function Authorization() {
           handleSubmit,
           isSubmitting,
         }) => (
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <input
-                type="text"
-                name="login"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.login}
-                placeholder='Псевдоним'
-                className="form-control"
-              />
-              {errors.login && touched.login && errors.login}
-            </div>
-            <div className="mb-3">
-              <input
-                type="password"
-                name="password"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.password}
-                placeholder='Пароль'
-                className="form-control"
-              />
-              {errors.password && touched.password && errors.password}
-            </div>
+          <div className="w-full max-w-xs">
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <input
+                  type="text"
+                  name="login"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.login}
+                  placeholder='Псевдоним'
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"   
+                />
+                {errors.login && touched.login && errors.login}
+              </div>
+              <div className="mb-3">
+                <input
+                  type="password"
+                  name="password"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.password}
+                  placeholder='Пароль'
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"                
+                />
+                {errors.password && touched.password && errors.password}
+              </div>
 
-            <div className='mt-4'>
-              <button type="submit" disabled={isSubmitting} className="btn btn-dark">
-                Войти
-              </button>
-            </div>
-          </form>
+              <div className='mt-4'>
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting} 
+                  className="btn-standart"               
+                >
+                  Войти
+                </button>
+              </div>
+            </form>
+          </div>
         )}
       </Formik>
       
