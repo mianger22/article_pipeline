@@ -10,14 +10,14 @@ export default function Layout() {
       <header>
         <Navigation />
       </header>
-      <main className="px-5 mb-5">
+      <main className="px-5 mb-5 h-96 flex items-center justify-center">
         <Routes>
           <Route path="/" element={ <MainPage /> } />
           <Route path="/authorization" element={ <Authorization /> } />
           <Route path="/registration" element={ <Registration /> } />
         </Routes>
       </main>
-      <footer className="px-5 text-gray-500 font-thin">
+      <footer className="px-5 text-gray-500 font-thin flex items-center justify-center">
         Created by the Ustinnov Corporation · © 2023
       </footer>
     </>
