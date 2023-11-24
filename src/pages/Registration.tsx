@@ -63,62 +63,64 @@ export default function Registration() {
           isSubmitting,
           /* and other goodies */
         }) => (
-          <form onSubmit={handleSubmit}>
-              <div className="mb-3">
-                <input
-                  type="text"
-                  name="login"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.login}
-                  placeholder='Псевдоним'
-                  className="form-control"
-                />
-                {errors.login && touched.login && errors.login}
-              </div>
-              <div className="mb-3">
-                <input
-                  type="password"
-                  name="password"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.password}
-                  placeholder='Пароль'
-                  className="form-control"
-                />
-                {errors.password && touched.password && errors.password}
-              </div>
-              <div className="mb-3">
-                <input
-                  type="password"
-                  name="repeat_password"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.repeat_password}
-                  placeholder='Повтор пароля'
-                  className="form-control"
-                />
-                {errors.repeat_password && touched.repeat_password && errors.repeat_password}
-              </div>
-              <div className="mb-3">
-                <input
-                  type="email"
-                  name="email"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.email}
-                  placeholder='Адрес электронной почты'
-                  className="form-control"
-                />
-                {errors.email && touched.email && errors.email}
-              </div>
+          <div className="w-full max-w-xs">
+            <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    name="login"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.login}
+                    placeholder='Псевдоним'
+                    className="input-standart"
+                  />
+                  {errors.login && touched.login && errors.login}
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="password"
+                    name="password"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.password}
+                    placeholder='Пароль'
+                    className="input-standart"
+                  />
+                  {errors.password && touched.password && errors.password}
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="password"
+                    name="repeat_password"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.repeat_password}
+                    placeholder='Повтор пароля'
+                    className="input-standart"
+                  />
+                  {errors.repeat_password && touched.repeat_password && errors.repeat_password}
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="email"
+                    name="email"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.email}
+                    placeholder='Адрес электронной почты'
+                    className="input-standart"
+                  />
+                  {errors.email && touched.email && errors.email}
+                </div>
 
-              <div className='mt-4'>
-                <button type="submit" disabled={isSubmitting} className="btn btn-dark">
-                  Зарегистрироваться
-                </button>
-              </div>
-          </form>
+                <div className='mt-4'>
+                  <button type="submit" disabled={isSubmitting} className="btn-standart">
+                    Зарегистрироваться
+                  </button>
+                </div>
+            </form>
+          </div>
         )}
       </Formik>
 
