@@ -54,7 +54,7 @@ export default function Authorization() {
           handleSubmit,
           isSubmitting,
         }) => (
-          <div className="w-full max-w-xs">
+          <div className="form_custom">
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <input
@@ -64,7 +64,7 @@ export default function Authorization() {
                   onBlur={handleBlur}
                   value={values.login}
                   placeholder='Псевдоним'
-                  className="input-standart"   
+                  className="input_custom"   
                 />
                 {errors.login && touched.login && errors.login}
               </div>
@@ -76,7 +76,7 @@ export default function Authorization() {
                   onBlur={handleBlur}
                   value={values.password}
                   placeholder='Пароль'
-                  className="input-standart"                
+                  className="input_custom"                
                 />
                 {errors.password && touched.password && errors.password}
               </div>
@@ -85,7 +85,7 @@ export default function Authorization() {
                 <button 
                   type="submit" 
                   disabled={isSubmitting} 
-                  className="btn-standart"               
+                  className="btn_custom"               
                 >
                   Войти
                 </button>

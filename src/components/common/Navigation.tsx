@@ -27,7 +27,7 @@ export default function Navigation() {
 
       {isAuthed && 
         <button 
-          className="btn-standart" 
+          className="btn_custom" 
           onClick={leave_page}
         >
           Выйти

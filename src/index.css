@@ -3,11 +3,15 @@
 @tailwind utilities;
 
 @layer components {
-  .btn-standart {
+  .btn_custom {
     @apply bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded;
   }
 
-  .input-standart {
+  .input_custom {
     @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline;
+  }
+
+  .form_custom {
+    @apply w-full max-w-xs;
   }
 }

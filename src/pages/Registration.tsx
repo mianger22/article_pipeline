@@ -63,7 +63,7 @@ export default function Registration() {
           isSubmitting,
           /* and other goodies */
         }) => (
-          <div className="w-full max-w-xs">
+          <div className="form_custom">
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <input
@@ -73,7 +73,7 @@ export default function Registration() {
                     onBlur={handleBlur}
                     value={values.login}
                     placeholder='Псевдоним'
-                    className="input-standart"
+                    className="input_custom"
                   />
                   {errors.login && touched.login && errors.login}
                 </div>
@@ -85,7 +85,7 @@ export default function Registration() {
                     onBlur={handleBlur}
                     value={values.password}
                     placeholder='Пароль'
-                    className="input-standart"
+                    className="input_custom"
                   />
                   {errors.password && touched.password && errors.password}
                 </div>
@@ -97,7 +97,7 @@ export default function Registration() {
                     onBlur={handleBlur}
                     value={values.repeat_password}
                     placeholder='Повтор пароля'
-                    className="input-standart"
+                    className="input_custom"
                   />
                   {errors.repeat_password && touched.repeat_password && errors.repeat_password}
                 </div>
@@ -109,13 +109,13 @@ export default function Registration() {
                     onBlur={handleBlur}
                     value={values.email}
                     placeholder='Адрес электронной почты'
-                    className="input-standart"
+                    className="input_custom"
                   />
                   {errors.email && touched.email && errors.email}
                 </div>
 
                 <div className='mt-4'>
-                  <button type="submit" disabled={isSubmitting} className="btn-standart">
+                  <button type="submit" disabled={isSubmitting} className="btn_custom">
                     Зарегистрироваться
                   </button>
                 </div>
