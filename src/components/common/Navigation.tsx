@@ -8,7 +8,9 @@ export default function Navigation(props: PropsTypes) {
   const isAuthed = useSelector((state: any) => state.isAuthed);
 
   useEffect(() => {
-    // если токен существует, то отображать кнопку выхода
+    // если токен существует, то отображать кнопку выхода, 
+    // это нужно для того, чтобы при перезагрузке главной страницы кнопка выхода не пропадала, 
+    // то есть в хранилище значение isAuthed менялось на true
     if (localStorage.getItem('authToken')) {
       props.grant_access_to_user();
     }
