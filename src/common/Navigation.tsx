@@ -16,7 +16,7 @@ export default function Navigation(props: PagePropsTypes) {
     if (localStorage.getItem('authToken')) {
       props.grant_access_to_user();
     }
-  }, [isAuthed])
+  }, [])
 
   const enter_advanced_mode_handler = () => {
     // редиректим на страницу авторизации
