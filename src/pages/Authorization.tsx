@@ -83,8 +83,8 @@ export default function Authorization(props: PagePropsTypes) {
             </div>
           </form>
 
-          <div className='mt-6 px-3 text-blue-700 text-decoration-line: underline text-sm text-right'>
-            <div>
+          <div className='mt-8 px-3 text-blue-700 text-decoration-line: underline text-sm text-right'>
+            <div className='mb-1'>
               <Link to="/password_reset">Вспомнить пароль</Link>
             </div>
             <div>
