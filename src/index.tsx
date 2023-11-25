@@ -1,9 +1,28 @@
+import './index.css';
 import React from 'react';
+import Layout from './layout';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import Layout from './layout';
-import './index.css';
+import { legacy_createStore as createStore} from 'redux';
+import { Provider } from 'react-redux';
+
+const defaultState = {
+  isAuthed: false
+}
+
+const reducer = (state = defaultState, action: any) => {
+  switch (action.type) {
+    case "GRANT_ACCESS_TO_USER": 
+      return {...state, isAuthed: true}
+    case "DENY_USER_ACCESS": 
+      return {...state, isAuthed: false}
+    default:
+      return state
+  }
+}
+
+const store = createStore(reducer);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,9 +30,11 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Layout />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Layout />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 

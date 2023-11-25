@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
+import { PropsTypes } from '../types/CommonTypes';
 
 type ErrorsRegistrationTypes = {
   login?: string;
@@ -12,7 +13,7 @@ type ErrorsRegistrationTypes = {
 //   login: string, email: string, password: string, repeat_password: string
 // }
 
-export default function Registration() {
+export default function Registration(props: PropsTypes) {
   const navigate = useNavigate();
 
   return (
@@ -37,6 +38,8 @@ export default function Registration() {
 
         // предоставляем токен
         localStorage.setItem("authToken", "authToken");
+        // обновляем состояние на аутентифицированного пользователя
+        props.grant_access_to_user();
         // впускаем в приложение
         navigate('/');
       }}

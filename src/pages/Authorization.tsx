@@ -1,5 +1,7 @@
 import { Formik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { PropsTypes } from "../types/CommonTypes";
 
 type ErrorsAuthorizationTypes = {
   login?: string;
@@ -10,8 +12,10 @@ type ErrorsAuthorizationTypes = {
 //   login: string, email: string, password: string, repeat_password: string
 // }
 
-export default function Authorization() {
+export default function Authorization(props: PropsTypes) {
   const navigate = useNavigate();
+
+  // const isAuthed = useSelector(state => state.isAuthed);
 
   return (
     <Formik
@@ -29,6 +33,8 @@ export default function Authorization() {
 
         // предоставляем токен
         localStorage.setItem("authToken", "authToken");
+        // обновляем состояние на аутентифицированного пользователя
+        props.grant_access_to_user();
         // впускаем в приложение
         navigate('/');
       }}

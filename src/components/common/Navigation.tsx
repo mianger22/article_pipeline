@@ -1,24 +1,26 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { PropsTypes } from "../../types/CommonTypes";
 
-export default function Navigation() {
+export default function Navigation(props: PropsTypes) {
   const navigate = useNavigate();
-  const [isAuthed, setAuth] = useState(false);
+  const isAuthed = useSelector((state: any) => state.isAuthed);
 
   useEffect(() => {
     // если токен существует, то отображать кнопку выхода
     if (localStorage.getItem('authToken')) {
-      setAuth(true);
+      props.grant_access_to_user();
     }
   }, [isAuthed])
 
   const leave_page = () => {
-    // убираем статус авторизованного пользователя
-    setAuth(false);
-    // редиректим на страницу авторизации
-    navigate('/authorization');
     // отбираем токен
     localStorage.removeItem("authToken");
+    // убираем статус авторизованного пользователя
+    props.deny_user_access && props.deny_user_access();
+    // редиректим на страницу авторизации
+    navigate('/authorization');
   }
 
   return (
