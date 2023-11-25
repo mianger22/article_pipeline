@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import Authorization from "./pages/Authorization";
 import Registration from "./pages/Registration";
-import Navigation from "./components/common/Navigation";
+import Navigation from "./common/Navigation";
 import { useDispatch } from "react-redux";
 
 export default function Layout() {

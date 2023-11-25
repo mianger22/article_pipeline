@@ -1,6 +1,7 @@
 import { Formik } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
 import { PropsTypes } from '../types/CommonTypes';
+import { enter_advanced_mode } from '../common/common_scripts';
 
 type ErrorsRegistrationTypes = {
   login?: string;
@@ -35,13 +36,7 @@ export default function Registration(props: PropsTypes) {
       onSubmit={(values, { setSubmitting }) => {
         // alert(JSON.stringify(values, null, 2));
         setSubmitting(false);
-
-        // предоставляем токен
-        localStorage.setItem("authToken", "authToken");
-        // обновляем состояние на аутентифицированного пользователя
-        props.grant_access_to_user();
-        // впускаем в приложение
-        navigate('/');
+        enter_advanced_mode(props.grant_access_to_user, navigate);
       }}
     >
       {({

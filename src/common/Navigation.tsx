@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { PropsTypes } from "../../types/CommonTypes";
+import { PropsTypes } from "../types/CommonTypes";
+import { enter_advanced_mode } from "./common_scripts";
 
 export default function Navigation(props: PropsTypes) {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ export default function Navigation(props: PropsTypes) {
     }
   }, [isAuthed])
 
-  const leave_page = () => {
+  const leave_advanced_mode_handler = () => {
     // отбираем токен
     localStorage.removeItem("authToken");
     // убираем статус авторизованного пользователя
@@ -25,17 +26,28 @@ export default function Navigation(props: PropsTypes) {
     navigate('/authorization');
   }
 
+  const enter_advanced_mode_handler = () => {
+    enter_advanced_mode(props.grant_access_to_user, navigate, '/authorization');
+  }
+
   return (
     <nav className="flex justify-between items-center h-[75px] px-5 mb-5 shadow-md">
       <div>Новостной портал</div>
 
-      {isAuthed && 
+      {isAuthed ? 
         <button 
           className="btn_custom" 
-          onClick={leave_page}
+          onClick={leave_advanced_mode_handler}
         >
           Выйти
-        </button>
+        </button> 
+          :
+        <button 
+          className="btn_custom" 
+          onClick={enter_advanced_mode_handler}
+        >
+          Войти
+        </button> 
       }
     </nav>
   );
