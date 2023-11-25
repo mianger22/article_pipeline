@@ -34,12 +34,10 @@ export default function Navigation(props: PagePropsTypes) {
     <nav className="flex justify-between items-center h-[75px] px-5 mb-5 shadow-md">
       <div>Новостной портал</div>
 
-      {location !== "/authorization" && location !== "/authorization" && isAuthed && 
-        <Btn name="Выйти" clickHandler={leave_advanced_mode_handler} /> 
-      }
-
-      {location !== "/authorization" && location !== "/registration" && !isAuthed && 
-        <Btn name="Войти" clickHandler={enter_advanced_mode_handler} />}
+      { location !== "/authorization" && location !== "/registration" && 
+        (isAuthed ? 
+          <Btn name="Выйти" clickHandler={leave_advanced_mode_handler} /> : 
+          <Btn name="Войти" clickHandler={enter_advanced_mode_handler} /> )}     
     </nav>
   );
 }
