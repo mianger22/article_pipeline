@@ -1,7 +1,8 @@
 import { Formik } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
-import { PropsTypes } from '../types/CommonTypes';
-import { enter_advanced_mode } from '../common/common_scripts';
+import { PagePropsTypes } from '../common/CommonTypes';
+import { enter_advanced_mode } from '../common/CommonScripts';
+import Btn from '../common/Btn';
 
 type ErrorsRegistrationTypes = {
   login?: string;
@@ -14,7 +15,7 @@ type ErrorsRegistrationTypes = {
 //   login: string, email: string, password: string, repeat_password: string
 // }
 
-export default function Registration(props: PropsTypes) {
+export default function Registration(props: PagePropsTypes) {
   const navigate = useNavigate();
 
   return (
@@ -100,16 +101,14 @@ export default function Registration(props: PropsTypes) {
                 {errors.email && touched.email && errors.email}
               </div>
 
-              <div className='flex justify-between items-center mt-5'>
-                <button type="submit" disabled={isSubmitting} className="btn_custom">
-                  Зарегистрироваться
-                </button>
-
-                <div className='text-blue-700 text-decoration-line: underline text-lg pr-3'>
-                  <Link to="/authorization">← Назад</Link>
-                </div>
+              <div className='flex justify-center items-center mt-5'>
+                <Btn name='Зарегистрироваться' isSubmitting={isSubmitting} />
               </div>
           </form>
+
+          <div className='text-blue-700 text-sm text-right mt-7 pr-3'>
+            <Link to="/authorization">← Назад</Link>
+          </div>
         </div>
       )}
     </Formik>

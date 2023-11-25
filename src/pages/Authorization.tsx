@@ -1,7 +1,9 @@
 import { Formik } from "formik";
+import { useEffect } from "react";
+import { PagePropsTypes } from "../common/CommonTypes";
 import { Link, useNavigate } from "react-router-dom";
-import { PropsTypes } from "../types/CommonTypes";
-import { enter_advanced_mode } from "../common/common_scripts";
+import { enter_advanced_mode } from "../common/CommonScripts";
+import Btn from "../common/Btn";
 
 type ErrorsAuthorizationTypes = {
   login?: string;
@@ -12,10 +14,17 @@ type ErrorsAuthorizationTypes = {
 //   login: string, email: string, password: string, repeat_password: string
 // }
 
-export default function Authorization(props: PropsTypes) {
+export default function Authorization(props: PagePropsTypes) {
   const navigate = useNavigate();
 
-  // const isAuthed = useSelector(state => state.isAuthed);
+  // useEffect(() => {
+  //   // если токен существует, то отображать кнопку выхода, 
+  //   // это нужно для того, чтобы при перезагрузке главной страницы кнопка выхода не пропадала, 
+  //   // то есть в хранилище значение isAuthed менялось на true
+  //   if (localStorage.getItem('authToken')) {
+  //     props.grant_access_to_user();
+  //   }
+  // }, [isAuthed])
 
   return (
     <Formik
@@ -70,13 +79,7 @@ export default function Authorization(props: PropsTypes) {
             </div>
 
             <div className='flex justify-center items-center mt-5'>
-              <button 
-                type="submit" 
-                disabled={isSubmitting} 
-                className="btn_custom"               
-              >
-                Войти
-              </button>
+              <Btn name='Войти' isSubmitting={isSubmitting} />
             </div>
           </form>
 

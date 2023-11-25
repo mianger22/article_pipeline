@@ -1,6 +1,6 @@
 import './index.css';
 import React from 'react';
-import Layout from './layout';
+import Layout from './Layout';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';

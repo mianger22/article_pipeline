@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { PropsTypes } from "../types/CommonTypes";
-import { enter_advanced_mode } from "./common_scripts";
+import { PagePropsTypes } from "./CommonTypes";
+import Btn from "./Btn";
 
-export default function Navigation(props: PropsTypes) {
+export default function Navigation(props: PagePropsTypes) {
   const navigate = useNavigate();
   const isAuthed = useSelector((state: any) => state.isAuthed);
+  const location = useLocation().pathname;
 
   useEffect(() => {
     // если токен существует, то отображать кнопку выхода, 
@@ -18,7 +19,8 @@ export default function Navigation(props: PropsTypes) {
   }, [isAuthed])
 
   const enter_advanced_mode_handler = () => {
-    enter_advanced_mode(props.grant_access_to_user, navigate, '/authorization');
+    // редиректим на страницу авторизации
+    navigate('/authorization');
   }
 
   const leave_advanced_mode_handler = () => {
@@ -26,29 +28,18 @@ export default function Navigation(props: PropsTypes) {
     localStorage.removeItem("authToken");
     // убираем статус авторизованного пользователя
     props.deny_user_access && props.deny_user_access();
-    // редиректим на страницу авторизации
-    navigate('/authorization');
   }
 
   return (
     <nav className="flex justify-between items-center h-[75px] px-5 mb-5 shadow-md">
       <div>Новостной портал</div>
 
-      {isAuthed ? 
-        <button 
-          className="btn_custom" 
-          onClick={leave_advanced_mode_handler}
-        >
-          Выйти
-        </button> 
-          :
-        <button 
-          className="btn_custom" 
-          onClick={enter_advanced_mode_handler}
-        >
-          Войти
-        </button> 
+      {location !== "/authorization" && location !== "/authorization" && isAuthed && 
+        <Btn name="Выйти" clickHandler={leave_advanced_mode_handler} /> 
       }
+
+      {location !== "/authorization" && location !== "/registration" && !isAuthed && 
+        <Btn name="Войти" clickHandler={enter_advanced_mode_handler} />}
     </nav>
   );
 }
