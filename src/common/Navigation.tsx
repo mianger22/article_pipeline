@@ -17,6 +17,10 @@ export default function Navigation(props: PropsTypes) {
     }
   }, [isAuthed])
 
+  const enter_advanced_mode_handler = () => {
+    enter_advanced_mode(props.grant_access_to_user, navigate, '/authorization');
+  }
+
   const leave_advanced_mode_handler = () => {
     // отбираем токен
     localStorage.removeItem("authToken");
@@ -24,10 +28,6 @@ export default function Navigation(props: PropsTypes) {
     props.deny_user_access && props.deny_user_access();
     // редиректим на страницу авторизации
     navigate('/authorization');
-  }
-
-  const enter_advanced_mode_handler = () => {
-    enter_advanced_mode(props.grant_access_to_user, navigate, '/authorization');
   }
 
   return (
