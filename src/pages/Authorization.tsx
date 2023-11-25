@@ -1,6 +1,5 @@
 import { Formik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import { PropsTypes } from "../types/CommonTypes";
 
 type ErrorsAuthorizationTypes = {

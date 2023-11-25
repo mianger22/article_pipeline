@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { PropsTypes } from "../../types/CommonTypes";
 
 export default function Navigation(props: PropsTypes) {
