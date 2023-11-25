@@ -54,49 +54,53 @@ export default function Registration(props: PagePropsTypes) {
           <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <input
-                  type="text"
-                  name="login"
+                  type='text'
+                  name='login'
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.login}
                   placeholder='Псевдоним'
-                  className="input_custom"
+                  className='input_custom'
+                  autoComplete='new-login'
                 />
                 {errors.login && touched.login && errors.login}
               </div>
               <div className="mb-3">
                 <input
-                  type="password"
-                  name="password"
+                  type='password'
+                  name='password'
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.password}
                   placeholder='Пароль'
-                  className="input_custom"
+                  className='input_custom'
+                  autoComplete='new-password'
                 />
                 {errors.password && touched.password && errors.password}
               </div>
               <div className="mb-3">
                 <input
-                  type="password"
-                  name="repeat_password"
+                  type='password'
+                  name='repeat_password'
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.repeat_password}
                   placeholder='Повтор пароля'
-                  className="input_custom"
+                  className='input_custom'
+                  autoComplete='new-password'
                 />
                 {errors.repeat_password && touched.repeat_password && errors.repeat_password}
               </div>
               <div className="mb-3">
                 <input
-                  type="email"
-                  name="email"
+                  type='email'
+                  name='email'
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.email}
                   placeholder='Адрес электронной почты'
-                  className="input_custom"
+                  className='input_custom'
+                  autoComplete='new-email'
                 />
                 {errors.email && touched.email && errors.email}
               </div>
@@ -107,7 +111,7 @@ export default function Registration(props: PagePropsTypes) {
           </form>
 
           <div className='text-blue-700 text-sm text-right mt-7 pr-3'>
-            <Link to="/authorization">← Назад</Link>
+            <Link to='/authorization'>← Назад</Link>
           </div>
         </div>
       )}
