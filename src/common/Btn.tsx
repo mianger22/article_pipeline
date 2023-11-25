@@ -20,7 +20,9 @@ export default function Btn(props: BtnPropsTypes) {
 
   return (
     <button 
-      className="btn_custom" 
+      className={props.name === "Войти" ? 
+        "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" : 
+        "btn_custom"} 
       onClick={props.clickHandler}
     >
       { props.name }
