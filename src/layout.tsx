@@ -24,14 +24,16 @@ export default function Layout() {
           deny_user_access={deny_user_access}
         />
       </header>
-      <main className="px-5 mb-5 h-96 flex items-center justify-center">
+      <main className="px-5 mb-5 h-full flex items-center justify-center">
         <Routes>
           <Route path="/" element={ <MainPage /> } />
           <Route path="/authorization" element={ 
-            <Authorization grant_access_to_user={grant_access_to_user} /> 
+            <Authorization 
+              grant_access_to_user={grant_access_to_user} /> 
           } />
           <Route path="/registration" element={ 
-            <Registration grant_access_to_user={grant_access_to_user} /> 
+            <Registration 
+              grant_access_to_user={grant_access_to_user} /> 
           } />
         </Routes>
       </main>
