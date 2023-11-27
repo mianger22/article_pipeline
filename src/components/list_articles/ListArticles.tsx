@@ -13,10 +13,8 @@ export default function ListArticles() {
   ]
 
   return (
-    <div>
-      {
-        articles_data.map(el => <Article title={el.title} text={el.text} />)
-      }
+    <div className="px-5">
+      { articles_data.map(el => <Article title={el.title} text={el.text} />) }
     </div>
   );
 }
