@@ -4,7 +4,12 @@ export type PagePropsTypes = {
 }
 
 export type ArticlesDataType = {
+  id?: number,
   title: string,
   link_img?: string,
-  text: string
+  text?: string
+}
+
+export type ListArticlesPropsTypes = {
+  articles_data: ArticlesDataType[]
 }

@@ -18,7 +18,7 @@ export default function Article(props: ArticlesDataType) {
           <img src={props.link_img} alt='alt' width={150} height={200} className='my-3' />
       }
       {
-        (props.text.length > 135 && !fullTextArticleIsOpen) ? 
+        (props.text && props.text.length > 135 && !fullTextArticleIsOpen) ? 
           <>
             <div>
               {JSON.stringify(props.text).substr(0, 135) + "..."}
