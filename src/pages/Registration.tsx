@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { PagePropsTypes } from '../common/CommonTypes';
 import { enter_advanced_mode } from '../common/CommonScripts';
 import Btn from '../common/Btn';
+import CustomLink from '../common/CustomLink';
 
 type ErrorsRegistrationTypes = {
   login?: string;
@@ -110,8 +111,8 @@ export default function Registration(props: PagePropsTypes) {
               </div>
           </form>
 
-          <div className='text-blue-700 text-sm text-right mt-7 pr-3'>
-            <Link to='/authorization'>← Назад</Link>
+          <div className='mt-7 pr-3 text-right'>
+            <CustomLink path='/authorization' name='Назад' />
           </div>
         </div>
       )}

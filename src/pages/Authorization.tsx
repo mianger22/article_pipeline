@@ -4,6 +4,7 @@ import { PagePropsTypes } from "../common/CommonTypes";
 import { Link, useNavigate } from "react-router-dom";
 import { enter_advanced_mode } from "../common/CommonScripts";
 import Btn from "../common/Btn";
+import CustomLink from "../common/CustomLink";
 
 type ErrorsAuthorizationTypes = {
   login?: string;
@@ -83,13 +84,9 @@ export default function Authorization(props: PagePropsTypes) {
             </div>
           </form>
 
-          <div className='mt-8 px-3 text-blue-700 text-decoration-line: underline text-sm text-right'>
-            <div className='mb-1'>
-              <Link to="/password_reset">Вспомнить пароль</Link>
-            </div>
-            <div>
-              <Link to="/registration">Зарегистрироваться</Link>
-            </div>
+          <div className='mt-8 px-3 text-right'>
+              <CustomLink path='/password_reset' name='Вспомнить пароль' />
+              <CustomLink path='/registration' name='Зарегистрироваться' />
           </div>
         </div>
       )}
