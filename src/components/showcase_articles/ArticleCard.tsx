@@ -6,7 +6,7 @@ export default function ArticleCard(props: ArticlesDataType) {
       <div className='mb-2'>
         <img src={props.link_img} alt='new' />
       </div>
-      <div>
+      <div className='link_custom'>
         {props.title}
       </div>
     </div>

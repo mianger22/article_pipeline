@@ -20,11 +20,11 @@ const articles_data: ArticlesDataType[] = [
 export default function MainPage() {
   return (
     <div className='flex w-full'>
-      <div className='border-2 border-indigo-500/100 w-2/12 flex items-center justify-center'>Bio area</div>
-      <div className='border-2 border-indigo-500/100 w-8/12 flex items-center justify-center'>
+      <div className='w-2/12 flex items-center justify-center'>Bio area</div>
+      <div className='w-8/12 flex items-center justify-center'>
         <ListArticles articles_data={articles_data} />
       </div>
-      <div className='border-2 border-indigo-500/100 w-2/12 py-5 px-2'>
+      <div className='w-2/12 py-5 px-2'>
         <ShowcaseArticles articles_data={articles_data} />
       </div>
     </div>
