@@ -2,13 +2,13 @@ import { ArticlesDataType } from "../../common/CommonTypes";
 
 export default function ArticleCard(props: ArticlesDataType) {
   return (
-    <>
-      <div>
-        <img src={props.link_img} alt='new' width={100} height={50} />
+    <div className='mb-5'>
+      <div className='mb-2'>
+        <img src={props.link_img} alt='new' />
       </div>
       <div>
         {props.title}
       </div>
-    </>
+    </div>
   );
 }
