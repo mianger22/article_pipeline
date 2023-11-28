@@ -1,5 +1,5 @@
 import { Formik } from 'formik';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { PagePropsTypes } from '../common/CommonTypes';
 import { enter_advanced_mode } from '../common/CommonScripts';
 import Btn from '../common/Btn';

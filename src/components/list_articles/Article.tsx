@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { ArticlesDataType } from "../../common/CommonTypes";
 
 export default function Article(props: ArticlesDataType) {
+  const [fullTextArticleIsOpen, setFullTextArticleIsOpen] = useState(false);
+
   const open_all_article = () => {
-    alert(" showed all text article ")
+    setFullTextArticleIsOpen(true);
   }
 
   return (
@@ -11,7 +14,7 @@ export default function Article(props: ArticlesDataType) {
         {props.title}
       </div>
       {
-        props.text.length > 135 ? 
+        (props.text.length > 135 && !fullTextArticleIsOpen) ? 
           <>
             <div>
               {JSON.stringify(props.text).substr(0, 135) + "..."}

@@ -1,7 +1,7 @@
 import { Formik } from "formik";
 import { useEffect } from "react";
 import { PagePropsTypes } from "../common/CommonTypes";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { enter_advanced_mode } from "../common/CommonScripts";
 import Btn from "../common/Btn";
 import CustomLink from "../common/CustomLink";
