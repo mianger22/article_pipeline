@@ -11,5 +11,6 @@ export type ArticlesDataType = {
 }
 
 export type ListArticlesPropsTypes = {
+  currentNumber?: number,
   articles_data: ArticlesDataType[]
 }
