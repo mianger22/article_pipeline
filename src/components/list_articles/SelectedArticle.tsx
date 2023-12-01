@@ -11,11 +11,13 @@ export default function SelectedArticle(props: ListArticlesPropsTypes) {
       { current_article 
           ?
             <div>
-              <Article 
-                title={current_article.title} 
-                link_img={current_article.link_img} 
-                text={current_article.text}
-              />
+              <div className='px-5'>
+                <Article 
+                  title={current_article.title} 
+                  link_img={current_article.link_img} 
+                  text={current_article.text}
+                />
+              </div>
               <ListArticles articles_data={formatted_articles_data} />
             </div>
           : 
