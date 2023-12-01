@@ -5,7 +5,7 @@ export default function ArticleCard(props: ArticlesDataType) {
   const dispatch = useDispatch();
 
   const open_selected_article = () => {
-    dispatch({ type: "OPEN_ARTICLE", payload: 1 })
+    dispatch({ type: "OPEN_ARTICLE", payload: props.id })
   }
 
   return (

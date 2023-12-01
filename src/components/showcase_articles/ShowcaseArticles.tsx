@@ -5,7 +5,7 @@ export default function ShowcaseArticles(props: ListArticlesPropsTypes) {
   return (
     <>
       { props.articles_data.map(el => 
-        <ArticleCard title={el.title} link_img={el.link_img} />
+        <ArticleCard id={el.id} title={el.title} link_img={el.link_img} />
       ) }
     </>
   );
