@@ -6,7 +6,7 @@ import Btn from "./Btn";
 
 export default function Navigation(props: PagePropsTypes) {
   const navigate = useNavigate();
-  const isAuthed = useSelector((state: any) => state.isAuthed);
+  const isAuthed = useSelector((state: any) => state.authenticated.isAuthed);
   const location = useLocation().pathname;
 
   useEffect(() => {
