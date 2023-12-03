@@ -8,7 +8,8 @@ export type ArticlesDataType = {
   title: string,
   link_img?: string,
   text?: string,
-  is_opened_text?: boolean
+  is_opened_text?: boolean,
+  is_read?: boolean
 }
 
 export type ListArticlesPropsTypes = {
