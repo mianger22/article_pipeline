@@ -13,7 +13,7 @@ export default function ArticleCard(props: ArticlesDataType) {
   return (
     <div className='mb-5'>
       <div className='mb-2'>
-        <img src={props.link_img} alt='new' />
+        <img src={props.link_img} alt={props.alt} />
       </div>
       <div className='link_custom' onClick={open_selected_article}>
         {props.title}

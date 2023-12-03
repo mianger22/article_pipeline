@@ -21,7 +21,7 @@ export default function Article(props: ArticlesDataType) {
       </div>
       {
         props.link_img && 
-          <img src={props.link_img} alt='alt' width={150} height={200} className='my-3' />
+          <img src={props.link_img} alt={props.alt} width={150} height={200} className='my-3' />
       }
       {
         (props.text && props.text.length > 135 && !fullTextArticleIsOpen) ? 
