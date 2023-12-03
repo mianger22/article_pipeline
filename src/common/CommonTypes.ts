@@ -7,7 +7,8 @@ export type ArticlesDataType = {
   id?: number,
   title: string,
   link_img?: string,
-  text?: string
+  text?: string,
+  is_opened_text: boolean
 }
 
 export type ListArticlesPropsTypes = {
