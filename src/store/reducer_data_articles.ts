@@ -31,10 +31,14 @@ export const reducerDataArticles = (state = deafaultState, action: any) => {
     case "OPEN_TEXT": 
       return {...state, articles_data: state.articles_data.map((element: any) => {
         if (element.id === action.payload) {
-          element.is_opened_text = true
+          // у нужной статьи разворачиваем текст
+          element.is_opened_text = true;
+        } else {
+          // у остальных сворачиваем
+          element.is_opened_text = false;
         }
 
-        return element
+        return element;
       })}
     case "CHANGE_ORDER_ELEMENTS": 
       // 1. копирую исходный массив
