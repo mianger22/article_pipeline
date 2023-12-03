@@ -28,8 +28,27 @@ const deafaultState: { articles_data: ArticlesDataType[] } = {
 
 export const reducerDataArticles = (state = deafaultState, action: any) => {
   switch (action.type) {
-    case "ONE": 
-      return {...state, isAuthed: true}
+    case "OPEN_TEXT": 
+      return {...state, articles_data: state.articles_data.map((element: any) => {
+        if (element.id === action.payload) {
+          element.is_opened_text = true
+        }
+
+        return element
+      })}
+    case "CHANGE_ORDER_ELEMENTS": 
+      // 1. копирую исходный массив
+      let old_list_articles_data = state.articles_data;
+      // 2. получаю переданный id
+      const id_selected_article = action.payload;
+      // 3. выбираю элемент исходного массива и меняю его id на 1
+      old_list_articles_data[id_selected_article - 1].id = 1;
+      // 4. меняю id первого элемента на переданный id
+      old_list_articles_data[0].id = id_selected_article;
+      // 5. сортирую
+      [old_list_articles_data[0], old_list_articles_data[id_selected_article - 1]] = [old_list_articles_data[id_selected_article - 1], old_list_articles_data[0]];
+
+      return {...state, articles_data: old_list_articles_data}
     default: 
       return state
   }

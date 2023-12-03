@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArticlesDataType } from "../../common/CommonTypes";
 
 export default function Article(props: ArticlesDataType) {
@@ -7,6 +7,12 @@ export default function Article(props: ArticlesDataType) {
   const open_all_article = () => {
     setFullTextArticleIsOpen(true);
   }
+
+  useEffect(() => {
+    if (!fullTextArticleIsOpen && props.is_opened_text) {
+      setFullTextArticleIsOpen(true);
+    }
+  }, [fullTextArticleIsOpen, props.is_opened_text])
 
   return (
     <div className='mb-5'>

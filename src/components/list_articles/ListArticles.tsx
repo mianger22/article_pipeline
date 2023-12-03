@@ -5,7 +5,11 @@ export default function ListArticles(props: ListArticlesPropsTypes) {
   return (
     <div className="px-5">
       { props.articles_data.map(el => 
-        <Article title={el.title} link_img={el.link_img} text={el.text} />
+        <Article 
+          text={el.text} 
+          title={el.title} 
+          link_img={el.link_img} 
+          is_opened_text={el.is_opened_text} />
       ) }
     </div>
   );
