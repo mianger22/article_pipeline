@@ -32,17 +32,8 @@ const deafaultState: { articles_data: ArticlesDataType[] } = {
 export const reducerDataArticles = (state = deafaultState, action: any) => {
   switch (action.type) {
     case "OPEN_TEXT": 
-      return {...state, articles_data: state.articles_data.map((element: any) => {
-        if (element.id === action.payload) {
-          // у нужной статьи разворачиваем текст
-          element.is_opened_text = true;
-        } else {
-          // у остальных сворачиваем
-          element.is_opened_text = false;
-        }
-
-        return element;
-      })}
+      return {...state, articles_data: state.articles_data
+        .map(el => el.id === action.payload ? {...el, is_opened_text: true} : {...el, is_opened_text: false})}
     case "CHANGE_ORDER_ELEMENTS": 
       // 1. копирую исходный массив
       let old_list_articles_data = state.articles_data;
@@ -58,7 +49,8 @@ export const reducerDataArticles = (state = deafaultState, action: any) => {
       return {...state, articles_data: old_list_articles_data}
     case "IS_READ_ARTICLE":
       // ставим метку, что статья прочитана
-      return {...state, articles_data: state.articles_data.map(el => el.id === action.payload ? {...el, is_read: true} : el)}
+      return {...state, articles_data: state.articles_data
+        .map(el => el.id === action.payload ? {...el, is_read: true} : el)}
     default: 
       return state
   }
