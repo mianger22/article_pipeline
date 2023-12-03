@@ -56,6 +56,15 @@ export const reducerDataArticles = (state = deafaultState, action: any) => {
       [old_list_articles_data[0], old_list_articles_data[id_selected_article - 1]] = [old_list_articles_data[id_selected_article - 1], old_list_articles_data[0]];
 
       return {...state, articles_data: old_list_articles_data}
+    case "IS_READ_ARTICLE":
+      // ставим метку, что статья прочитана
+      return {...state, articles_data: state.articles_data.map(el => {
+        if (el.id === action.payload) {
+          return {...el, is_read: true} 
+        } else {
+          return el
+        }
+      })}
     default: 
       return state
   }
