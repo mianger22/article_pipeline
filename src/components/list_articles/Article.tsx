@@ -7,6 +7,9 @@ export default function Article(props: ArticlesDataType) {
   const open_all_article = () => {
     dispatch({ type: "IS_READ_ARTICLE", payload: props.id });
     dispatch({ type: "OPEN_TEXT", payload: props.id });
+    dispatch({ type: "CHANGE_ORDER_ELEMENTS", payload: props.id });
+    // прокрутить страницу вверх, чтобы прочитать открытую статью
+    window.scrollTo(0, 0);
   }
 
   return (
