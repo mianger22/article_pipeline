@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 export default function Article(props: ArticlesDataType) {
   const dispatch = useDispatch();
 
-  const open_all_article = () => {
+  const open_article = () => {
     dispatch({ type: "IS_READ_ARTICLE", payload: props.id });
     dispatch({ type: "OPEN_TEXT", payload: props.id });
     dispatch({ type: "CHANGE_ORDER_ELEMENTS", payload: props.id });
@@ -28,7 +28,7 @@ export default function Article(props: ArticlesDataType) {
               {JSON.stringify(props.text).substr(0, 135) + "..."}
             </div>
             <div>
-              {<button className='link_custom' onClick={open_all_article}>Читать далее</button>}
+              {<button className='link_custom' onClick={open_article}>Читать далее</button>}
             </div>
           </>
         :
