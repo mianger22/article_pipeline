@@ -43,10 +43,10 @@ const deafaultState: { articles_data: ArticlesDataType[] } = {
 
 export const reducerDataArticles = (state = deafaultState, action: any) => {
   switch (action.type) {
-    case "OPEN_TEXT": 
+    case 'OPEN_TEXT': 
       return {...state, articles_data: state.articles_data
         .map(el => el.id === action.payload ? {...el, is_opened_text: true} : {...el, is_opened_text: false})}
-    case "CHANGE_ORDER_ELEMENTS": 
+    case 'CHANGE_ORDER_ELEMENTS': 
       // 1. копирую исходный массив
       let old_list_articles_data = state.articles_data;
       // 2. получаю переданный id
@@ -59,7 +59,7 @@ export const reducerDataArticles = (state = deafaultState, action: any) => {
       [old_list_articles_data[0], old_list_articles_data[id_selected_article - 1]] = [old_list_articles_data[id_selected_article - 1], old_list_articles_data[0]];
 
       return {...state, articles_data: old_list_articles_data}
-    case "IS_READ_ARTICLE":
+    case 'IS_READ_ARTICLE':
       // ставим метку, что статья прочитана
       return {...state, articles_data: state.articles_data
         .map(el => el.id === action.payload ? {...el, is_read: true} : el)}
