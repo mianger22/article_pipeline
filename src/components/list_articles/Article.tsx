@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import { ArticlesDataType } from "../../common/CommonTypes";
+import { useDispatch } from "react-redux";
 
 export default function Article(props: ArticlesDataType) {
+  const dispatch = useDispatch();
   const [fullTextArticleIsOpen, setFullTextArticleIsOpen] = useState(false);
 
   const open_all_article = () => {
     setFullTextArticleIsOpen(true);
+    dispatch({ type: "IS_READ_ARTICLE", payload: props.id });
   }
 
   useEffect(() => {
