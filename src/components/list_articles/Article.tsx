@@ -6,8 +6,6 @@ export default function Article(props: ArticlesDataType) {
   const number_selected_article: null | number = useSelector((state: any) => state.data_articles.number_selected_article);
 
   const open_article = () => {
-    // dispatch({ type: "IS_READ_ARTICLE", payload: props.id });
-
     // закрыть открытую ранее статью
     if (number_selected_article) {
       dispatch({ type: "IS_READ_ARTICLE", payload: number_selected_article });
