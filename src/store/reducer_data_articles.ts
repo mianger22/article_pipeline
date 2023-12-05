@@ -1,6 +1,6 @@
-import { ArticlesDataType } from "../common/CommonTypes"
+import { ListArticlesPropsTypes } from "../common/CommonTypes"
 
-const deafaultState: { articles_data: ArticlesDataType[] } = {
+const deafaultState: ListArticlesPropsTypes = {
   articles_data: [
     {
       id: 1,
@@ -38,7 +38,8 @@ const deafaultState: { articles_data: ArticlesDataType[] } = {
       is_opened_text: false,
       is_read: false
     },
-  ]
+  ],
+  number_selected_article: null
 }
 
 export const reducerDataArticles = (state = deafaultState, action: any) => {
@@ -63,6 +64,8 @@ export const reducerDataArticles = (state = deafaultState, action: any) => {
       // ставим метку, что статья прочитана
       return {...state, articles_data: state.articles_data
         .map(el => el.id === action.payload ? {...el, is_read: true} : el)}
+    case 'SAVED_NUMBER_SELECTED_ARTICLE': 
+        return {...state, number_selected_article: action.payload}
     default: 
       return state
   }

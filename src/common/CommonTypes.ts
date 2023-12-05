@@ -14,5 +14,6 @@ export type ArticlesDataType = {
 }
 
 export type ListArticlesPropsTypes = {
-  articles_data: ArticlesDataType[]
+  articles_data: ArticlesDataType[],
+  number_selected_article?: null | number
 }

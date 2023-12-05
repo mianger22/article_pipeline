@@ -5,6 +5,7 @@ export default function ListArticles(props: ListArticlesPropsTypes) {
   return (
     <div className="px-5">
       { props.articles_data
+          .filter(el => el.is_read === false)
           .map(el => 
             <Article 
               id={el.id}
