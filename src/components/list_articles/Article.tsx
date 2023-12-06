@@ -12,12 +12,11 @@ export default function Article(props: ArticlesDataType) {
     }
 
     dispatch({ type: "OPEN_TEXT", payload: props.id });
+    // сохранить номер открытой статьи
+    dispatch({ type: "SAVED_NUMBER_SELECTED_ARTICLE", payload: 1 });
     dispatch({ type: "CHANGE_ORDER_ELEMENTS", payload: props.id });
     // прокрутить страницу вверх, чтобы прочитать открытую статью
     window.scrollTo(0, 0);
-
-    // сохранить номер открытой статьи
-    dispatch({ type: "SAVED_NUMBER_SELECTED_ARTICLE", payload: props.id });
   }
 
   return (
