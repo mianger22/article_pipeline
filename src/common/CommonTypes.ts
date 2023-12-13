@@ -4,7 +4,7 @@ export type PagePropsTypes = {
 }
 
 export type ArticlesDataType = {
-  id?: number,
+  id: number,
   title: string,
   link_img?: string,
   alt?: string,

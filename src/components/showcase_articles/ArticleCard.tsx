@@ -1,13 +1,13 @@
 import { ArticlesDataType } from "../../common/CommonTypes";
 import { useDispatch } from "react-redux";
+import { change_order_elements_action, open_text_action } from "../../store/action_creators";
 
 export default function ArticleCard(props: ArticlesDataType) {
   const dispatch = useDispatch();
 
   const open_selected_article = () => {
-    // dispatch({ type: "IS_READ_ARTICLE", payload: props.id });
-    dispatch({ type: "OPEN_TEXT", payload: props.id });
-    dispatch({ type: "CHANGE_ORDER_ELEMENTS", payload: props.id });
+    dispatch(open_text_action(props.id));
+    dispatch(change_order_elements_action(props.id));
   }
 
   return (
