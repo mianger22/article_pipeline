@@ -15,6 +15,7 @@ export default function Article(props: ArticlesDataType) {
     dispatch(OPEN_TEXT(props.id));
     dispatch(SAVED_NUMBER_SELECTED_ARTICLE());
     dispatch(CHANGE_ORDER_ELEMENTS(props.id));
+    
     // прокрутить страницу вверх, чтобы прочитать открытую статью
     window.scrollTo(0, 0);
   }

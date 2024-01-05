@@ -1,13 +1,23 @@
 import { ArticlesDataType } from "../../common/CommonTypes";
-import { useDispatch } from "react-redux";
-import { CHANGE_ORDER_ELEMENTS, OPEN_TEXT } from "../../store/slice_data_articles";
+import { useDispatch, useSelector } from "react-redux";
+import { CHANGE_ORDER_ELEMENTS, IS_READ_ARTICLE, OPEN_TEXT, SAVED_NUMBER_SELECTED_ARTICLE } from "../../store/slice_data_articles";
 
 export default function ArticleCard(props: ArticlesDataType) {
   const dispatch = useDispatch();
+  const number_selected_article: null | number = useSelector((state: any) => state.data_articles.number_selected_article);
 
   const open_selected_article = () => {
+    // закрыть открытую ранее статью
+    if (number_selected_article) {
+      dispatch(IS_READ_ARTICLE(number_selected_article));
+    }
+
     dispatch(OPEN_TEXT(props.id));
+    dispatch(SAVED_NUMBER_SELECTED_ARTICLE());
     dispatch(CHANGE_ORDER_ELEMENTS(props.id));
+
+    // прокрутить страницу вверх, чтобы прочитать открытую статью
+    window.scrollTo(0, 0);
   }
 
   return (
