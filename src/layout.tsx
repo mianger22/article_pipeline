@@ -4,17 +4,18 @@ import Authorization from "./pages/Authorization";
 import Registration from "./pages/Registration";
 import Navigation from "./common/Navigation";
 import { useDispatch } from "react-redux";
+import { DENY_USER_ACCESS, GRANT_ACCESS_TO_USER } from "./store/slice_authenticated";
 
 export default function Layout() {
   const dispatch = useDispatch();
 
   const grant_access_to_user = () => {
-    dispatch({type: "GRANT_ACCESS_TO_USER"})
-  }
+    dispatch(GRANT_ACCESS_TO_USER())
+  };
 
   const deny_user_access = () => {
-    dispatch({type: "DENY_USER_ACCESS"})
-  }
+    dispatch(DENY_USER_ACCESS())
+  };
 
   return (
     <>

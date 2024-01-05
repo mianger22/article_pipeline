@@ -1,6 +1,6 @@
 import { ArticlesDataType } from "../../common/CommonTypes";
 import { useDispatch, useSelector } from "react-redux";
-import { change_order_elements_action, is_read_article_action, open_text_action, saved_number_selected_article_action } from "../../store/action_creators";
+import { CHANGE_ORDER_ELEMENTS, IS_READ_ARTICLE, OPEN_TEXT, SAVED_NUMBER_SELECTED_ARTICLE } from "../../store/slice_data_articles";
 
 export default function Article(props: ArticlesDataType) {
   const dispatch = useDispatch();
@@ -9,12 +9,12 @@ export default function Article(props: ArticlesDataType) {
   const open_article = () => {
     // закрыть открытую ранее статью
     if (number_selected_article) {
-      dispatch(is_read_article_action(number_selected_article));
+      dispatch(IS_READ_ARTICLE(number_selected_article));
     }
 
-    dispatch(open_text_action(props.id));
-    dispatch(saved_number_selected_article_action());
-    dispatch(change_order_elements_action(props.id));
+    dispatch(OPEN_TEXT(props.id));
+    dispatch(SAVED_NUMBER_SELECTED_ARTICLE());
+    dispatch(CHANGE_ORDER_ELEMENTS(props.id));
     // прокрутить страницу вверх, чтобы прочитать открытую статью
     window.scrollTo(0, 0);
   }

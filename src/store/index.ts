@@ -1,11 +1,13 @@
-import { legacy_createStore as createStore, combineReducers} from 'redux';
-import { reducerDataArticles } from './reducer_data_articles';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import { reducerAuthenticated } from './reducer_authenticated';
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import slice_data_articles from './slice_data_articles';
+import slice_authenticated from './slice_authenticated';
 
 const rootReducer = combineReducers({
-  authenticated: reducerAuthenticated,
-  data_articles: reducerDataArticles
+  authenticated: slice_authenticated,
+  data_articles: slice_data_articles
 })
 
-export const store = createStore(rootReducer, composeWithDevTools());
+export const store = configureStore({
+  reducer: rootReducer,
+  devTools: process.env.NODE_ENV !== 'production',
+})
