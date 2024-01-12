@@ -1,24 +1,10 @@
 import { ArticlesDataType } from "../../common/CommonTypes";
-import { useDispatch, useSelector } from "react-redux";
-import { CHANGE_ORDER_ELEMENTS, IS_READ_ARTICLE, OPEN_TEXT, SAVED_NUMBER_SELECTED_ARTICLE } from "../../store/slice_data_articles";
+import { useSelector } from "react-redux";
+import useOpenArticle from "../../common/own_hooks/useOpenArticle";
 
 export default function Article(props: ArticlesDataType) {
-  const dispatch = useDispatch();
   const number_selected_article: null | number = useSelector((state: any) => state.data_articles.number_selected_article);
-
-  const open_article = () => {
-    // закрыть открытую ранее статью
-    if (number_selected_article) {
-      dispatch(IS_READ_ARTICLE(number_selected_article));
-    }
-
-    dispatch(OPEN_TEXT(props.id));
-    dispatch(SAVED_NUMBER_SELECTED_ARTICLE());
-    dispatch(CHANGE_ORDER_ELEMENTS(props.id));
-    
-    // прокрутить страницу вверх, чтобы прочитать открытую статью
-    window.scrollTo(0, 0);
-  }
+  const article_management = useOpenArticle(number_selected_article, props.id);
 
   return (
     <div className='mb-5'>
@@ -36,7 +22,7 @@ export default function Article(props: ArticlesDataType) {
               {JSON.stringify(props.text).substr(0, 135) + "..."}
             </div>
             <div>
-              {<button className='link_custom' onClick={open_article}>Читать далее</button>}
+              {<button className='link_custom' onClick={article_management.open_article}>Читать далее</button>}
             </div>
           </>
         :
