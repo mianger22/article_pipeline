@@ -39,7 +39,7 @@ export default function Layout() {
         </Routes>
       </main>
       <footer className="px-5 mt-10 mb-12 text-gray-500 font-thin flex items-center justify-center">
-        Created by the Ustinnov Corporation · © 2023
+        Created by the Ustinnov Corporation · © 2023 - 2024
       </footer>
     </>
   );
