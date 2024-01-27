@@ -84,6 +84,18 @@ export default function Authorization(props: PagePropsTypes) {
             </div>
           </form>
 
+          <div className="flex items-center justify-center mt-6 space-x-6">
+            <div className="zoom_icon">
+              <img width="48" height="48" src="https://img.icons8.com/doodle/48/google-logo.png" alt="google-logo" />
+            </div>
+            <div className="zoom_icon">
+              <img width="48" height="48" src="https://img.icons8.com/doodle/48/vk-messenger.png" alt="vk-messenger" />
+            </div>
+            <div className="zoom_icon">
+              <img width="48" height="48" src="https://img.icons8.com/doodle/48/facebook-new.png" alt="facebook-new" />
+            </div>
+          </div>
+
           <div className='mt-8 px-3 text-right'>
               <CustomLink path='/password_reset' name='Вспомнить пароль' />
               <CustomLink path='/registration' name='Зарегистрироваться' />

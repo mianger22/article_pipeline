@@ -18,4 +18,8 @@
   .link_custom {
     @apply font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm cursor-pointer;
   }
+
+  .zoom_icon {
+    @apply cursor-pointer hover:scale-150 hover:duration-1000;
+  }
 }
