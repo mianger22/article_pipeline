@@ -11,3 +11,7 @@ export const store = configureStore({
   reducer: rootReducer,
   devTools: process.env.NODE_ENV !== 'production',
 })
+
+export type RootState = ReturnType<typeof rootReducer>
+export type AppStore = ReturnType<typeof configureStore>
+export type AppDispatch = AppStore['dispatch']
